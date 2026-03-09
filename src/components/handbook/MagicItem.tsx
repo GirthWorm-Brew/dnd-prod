@@ -18,7 +18,7 @@ const item = itemJson;
 export default function MagicItem() {
   return (
     <Container fluid className="phb page">
-      <main className="page tocDepthH3" id="p1" data-index="0"></main>
+      <main className=""></main>
     </Container>
   );
 }
