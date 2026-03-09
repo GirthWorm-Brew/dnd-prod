@@ -1,25 +1,25 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import React from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import ReactDOM from "react-dom/client";
 import "../themes/V3/5ePHB/style.css";
 import {
-  Monster,
-  Spell,
   Armor,
-  SpellList,
-  Plane,
-  Race,
   Background,
   Class,
   Condition,
   Document,
   Feat,
   MagicItem,
+  Monster,
+  Plane,
+  Race,
   Section,
+  Spell,
+  SpellList,
   Weapon,
 } from "./components/handbook";
-import { Col, Container, Row } from "react-bootstrap";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Container fluid>

@@ -2,7 +2,7 @@ import type {
   NamedBlock,
   Speed,
 } from "../../modules/md-builder/components/creatures/CreatureTypes";
-import monsterJson from "../../../data/monsters/lich.json";
+import monsterJson from "../../../data/monsters/rat.json";
 import "../../../themes/V3/phb.standalone.css";
 import { Container } from "react-bootstrap";
 
@@ -78,132 +78,121 @@ function InfoSection({ info, title }: { info: String; title: String }) {
 const monster = monsterJson;
 export default function Monster() {
   return (
-    <>
-      <Container>
-        <main className="page phb ">
-          {/* <div> */}
-          {/*   <form> */}
-          {/*     <select> */}
-          {/*       {files.map((name) => ( */}
-          {/*         <option value={name}>{name}</option> */}
-          {/*       ))} */}
-          {/*     </select> */}
-          {/*   </form> */}
-          {/* </div> */}
-          <div className="columnWrapper">
-            <div
-              className="watercolor9"
-              style={{
-                opacity: 0.24,
-                top: -750,
-                left: -500,
-              }}
-            ></div>
-            <div className="block monster frame wide">
-              <h2 id="monster" className="">
-                {monster.name}
-              </h2>
-              <p>
-                <em>
-                  {monster.size} {monster.type} {monster.subtype}
-                  <span className="inline-block bonus">
-                    {monster.alignment}
-                  </span>
-                </em>
-              </p>
-              <hr />
-              <dl>
-                <dt>
-                  <strong>armor class</strong>
-                </dt>
-                <dd>
-                  {monster.armor_class}
-                  <br />
-                </dd>
-                <dt>
-                  <strong>hit points</strong>
-                </dt>
-                <dd>
-                  {monster.hit_points}
-                  <br />
-                </dd>
-                <SpeedBlock speed={monster.speed} />
-              </dl>
-              <hr />
-              <table>
-                <thead>
-                  <tr>
-                    <th align="center">str</th>
-                    <th align="center">dex</th>
-                    <th align="center">con</th>
-                    <th align="center">int</th>
-                    <th align="center">wis</th>
-                    <th align="center">cha</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td align="center">{monster.strength}</td>
-                    <td align="center">{monster.dexterity}</td>
-                    <td align="center">{monster.constitution}</td>
-                    <td align="center">{monster.intelligence}</td>
-                    <td align="center">{monster.wisdom}</td>
-                    <td align="center">{monster.charisma}</td>
-                  </tr>
-                </tbody>
-              </table>
-              <hr />
-              <dl>
-                <InfoSection
-                  info={monster.damage_resistances}
-                  title={"Damage Resistances"}
-                />
-                <InfoSection
-                  info={monster.condition_immunities}
-                  title={"Condition Immunities"}
-                />
-                <InfoSection info={monster.senses} title={"Senses"} />
-                <InfoSection info={monster.languages} title={"Languages"} />
-                <dt>
-                  <strong>challenge</strong>
-                </dt>
-                <dd>
-                  {monster.challenge_rating}{" "}
-                  <span className="inline-block bonus">
-                    <strong>proficiency bonus</strong>{" "}
-                  </span>
-                </dd>
-              </dl>
-              <hr />
-              <PropListWrapper
-                list={monster.legendary_actions}
-                type={"Legendary Actions"}
+    <Container className="phb page">
+      <main className="">
+        <h1>Monster</h1>
+        <div className="columnWrapper">
+          <div
+            className="watercolor9"
+            style={{
+              opacity: 0.24,
+              top: -750,
+              left: -500,
+            }}
+          ></div>
+          <div className="block monster frame wide">
+            <h2 id="monster" className="">
+              {monster.name}
+            </h2>
+            <p>
+              <em>
+                {monster.size} {monster.type} {monster.subtype}
+                <span className="inline-block bonus">{monster.alignment}</span>
+              </em>
+            </p>
+            <hr />
+            <dl>
+              <dt>
+                <strong>armor class</strong>
+              </dt>
+              <dd>
+                {monster.armor_class}
+                <br />
+              </dd>
+              <dt>
+                <strong>hit points</strong>
+              </dt>
+              <dd>
+                {monster.hit_points}
+                <br />
+              </dd>
+              <SpeedBlock speed={monster.speed} />
+            </dl>
+            <hr />
+            <table>
+              <thead>
+                <tr>
+                  <th align="center">str</th>
+                  <th align="center">dex</th>
+                  <th align="center">con</th>
+                  <th align="center">int</th>
+                  <th align="center">wis</th>
+                  <th align="center">cha</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="center">{monster.strength}</td>
+                  <td align="center">{monster.dexterity}</td>
+                  <td align="center">{monster.constitution}</td>
+                  <td align="center">{monster.intelligence}</td>
+                  <td align="center">{monster.wisdom}</td>
+                  <td align="center">{monster.charisma}</td>
+                </tr>
+              </tbody>
+            </table>
+            <hr />
+            <dl>
+              <InfoSection
+                info={monster.damage_resistances}
+                title={"Damage Resistances"}
               />
-              <PropListWrapper
-                list={monster.special_abilities}
-                type={"Special"}
+              <InfoSection
+                info={monster.condition_immunities}
+                title={"Condition Immunities"}
               />
-              <PropListWrapper list={monster.actions} type={"Actions"} />
-              <PropListWrapper
-                list={monster.bonus_actions}
-                type={"Bonus Actions"}
-              />
-            </div>
-            {monster.desc != "" || monster.desc.length > 2 ? (
-              <div className="descriptive wide">{monster.desc}</div>
-            ) : (
-              ""
-            )}
+              <InfoSection info={monster.senses} title={"Senses"} />
+              <InfoSection info={monster.languages} title={"Languages"} />
+              <dt>
+                <strong>challenge</strong>
+              </dt>
+              <dd>
+                {monster.challenge_rating}{" "}
+                <span className="inline-block bonus">
+                  <strong>proficiency bonus</strong>{" "}
+                </span>
+              </dd>
+            </dl>
+            <hr />
+            <PropListWrapper
+              list={monster.legendary_actions}
+              type={"Legendary Actions"}
+            />
+            <PropListWrapper
+              list={monster.special_abilities}
+              type={"Special"}
+            />
+            <PropListWrapper list={monster.actions} type={"Actions"} />
+            <PropListWrapper
+              list={monster.bonus_actions}
+              type={"Bonus Actions"}
+            />
           </div>
-          <a className="artist" href={monster.document__url}>
-            {monster.document__url}
-          </a>
-          <div className="footnote">
-            <p className="">{monster.document__title}</p>
-          </div>
-          <div className="pageNumber auto">{monster.page_no}</div>
-        </main>
-      </Container>
-    </>
+          {(monster.desc != "" || monster.desc.length > 2) &&
+          monster.desc != "false" ? (
+            <div className="descriptive wide">{monster.desc}</div>
+          ) : (
+            ""
+          )}
+        </div>
+        <a className="artist" href={monster.document__url}>
+          {monster.document__url}
+        </a>
+        <div className="footnote">
+          <p className="">{monster.document__title}</p>
+        </div>
+        <div className="pageNumber auto">{monster.page_no}</div>
+      </main>
+    </Container>
   );
 }
