@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import { useEffect, useState } from "react";
+import "./phb.standalone.css";
 import "./Page.css";
 
 const char = classJson;
@@ -55,9 +56,9 @@ export default function Class() {
   }, []);
 
   return (
-    <Container className="phb soft columnWrapper">
+    <div className="phb page soft">
       <h1>Class</h1>
-      <div className="" id="p1" data-index="0">
+      <div className="columnWrapper" id="p2" data-index="1">
         <h2>{char.name}</h2>
         <div
           className="classDescription"
@@ -68,6 +69,13 @@ export default function Class() {
           dangerouslySetInnerHTML={{ __html: content.table }}
         />
       </div>
-    </Container>
+      <a className="artist" href={char.document__url}>
+        {char.document__slug}
+      </a>
+      <div className="footnote">
+        <p className="">{char.document__title}</p>
+      </div>
+      <div className="pageNumber auto"></div>
+    </div>
   );
 }

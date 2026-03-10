@@ -1,5 +1,6 @@
-.phb.soft {
+.phb.page.soft {
   height: auto;
-  min-height: 279.4mm
-  overflow: visible
+  min-height: 500mm;
+  overflow: visible;
+  contain: none;
 }
